@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First task</title>
+</head>
+<body>
+	
+</body>
+
+<script>
+	const sort = function sort_massive (massive, method) {
+		if (method.trim().toLowerCase() === 'up') {
+			return massive.sort( (a, b) => a - b );
+		} else if (method.trim().toLowerCase() === 'down') {
+			return massive.sort( (a, b) => b - a );
+		} else {
+			return null;
+		}
+	}
+
+
+	const unsorted_massive = prompt('Enter unsorted massive', [1, 0, 3, 6, 2]).split(',');
+
+	const sort_method = prompt('Enter sort method: up or down', 'up');
+
+	const result = sort(unsorted_massive, sort_method);
+
+	alert(result);
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Second task</title>
+</head>
+<body style="background: gray; font-size: 12px; line-height: 0">
+	<div>
+		
+	</div>	
+</body>
+
+<script>
+	const first_stripe = document.createElement('span');
+	first_stripe.style.color = '#FFFFFF';
+	const second_stripe = document.createElement('span');
+	second_stripe.style.color = '#0039A6';
+	const third_stripe = document.createElement('span');
+	third_stripe.style.color = '#D52B1E';
+	document.querySelector('div').append(first_stripe, second_stripe, third_stripe);
+
+	let counter = 0;
+	let string = [];
+
+	for (let i = 1; i < 4800; i++) {
+		string.push('O');
+		if (string.length === 80) {
+			let p = document.createElement('p');
+			p.append(string.toString());
+			Array.from(document.querySelectorAll('span'))[counter].append(p);
+			string = [];
+		}
+		if (i % 1600 == 0) {
+			counter++;
+		}
+	}
+</script>
+
+</html>

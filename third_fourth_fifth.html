@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Third Fourth Fifth task</title>
+</head>
+<body>
+
+	<!-- third task -->
+
+	<form action="#" method="post" class="form" >
+		<div class="form__fullName">
+			<label for="first_name">Enter first name:</label>
+			<input type="text" name="first_name" id="first_name" value="" tabindex="1" />
+			<label for="last_name">Enter last name:</label>
+			<input type="text" name="last_name" id="last_name" value="" tabindex="1" />
+			<label for="middle_name">Enter middle name:</label>
+			<input type="text" name="middle_name" id="middle_name" value="" tabindex="1" />
+		</div>
+
+		<div class="form__phone">
+			<label>
+				Enter telephone number: <br>
+				<input type="tel" name="telephone" id="telephone" value="" tabindex="1" />
+			</label>
+			
+			<button class="button_addNumber">+</button>
+		</div>
+	
+		<div class="form__comments">
+			<label for="comments">Comments:</label>
+			<textarea cols="40" rows="8" name="comments" id="comments"></textarea>
+		</div>
+
+		<button class="form__buttonSend">Send</button>
+	
+	</form>
+	
+</body>
+
+<style>	
+	form {
+		margin: 0 auto;
+		width: 60%;
+		text-align: center;
+	}
+	form div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.form__phone {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.form__buttonSend {
+		margin: 0 auto;
+	}
+
+</style>
+
+<script>
+
+	//fourth task
+
+	const button_addNumber = document.querySelector('.button_addNumber');
+	button_addNumber.addEventListener('click', (event) => {
+		event.preventDefault();
+		const label = document.createElement('label');
+		const input = document.createElement('input');
+		const br = document.createElement('br');
+		input.setAttribute('type', 'tel');
+		label.append('Telephone N: ');
+		label.append(input);
+		
+		const phone_field = Array.from(document.querySelectorAll('.form__phone label'));
+		phone_field[phone_field.length - 1].append(br, label);
+	});
+
+	//fifth task
+
+	class Person {
+		constructor(full_name, phone, comments) {
+			this.first_name = full_name.split(' ')[0];
+			this.last_name = full_name.split(' ')[2];
+			this.middle_name = full_name.split(' ')[1];
+			this.telephone = phone;
+			this.comments = comments;
+		}
+		Send() {
+			const form = document.querySelector('.form');
+			form.first_name.value = this.first_name;
+			form.last_name.value = this.last_name;
+			form.middle_name.value = this.middle_name;
+			form.telephone.value = this.telephone;
+			form.comments.value = this.comments;
+			setTimeout(() => form.submit(), 2000);
+		}
+	}
+
+	let Boris = new Person('Boris Andreevich Titarenko', 89042391111, 'good candidate');
+
+	const form__buttonSend = document.querySelector('.form__buttonSend');
+	form__buttonSend.addEventListener('click', (event) => {
+		event.preventDefault();
+		Boris.Send();
+	});
+	
+
+</script>
+
+</html>
